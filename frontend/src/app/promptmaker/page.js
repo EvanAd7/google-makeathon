@@ -62,8 +62,8 @@ export default function PromptMakerPage() {
     }
   };
 
-  const handleKeywordSelect = (word, category) => {
-    setSelectedKeywords(prev => [...prev, { word, category }]);
+  const handleKeywordSelect = (word, category, color) => {
+    setSelectedKeywords(prev => [...prev, { word, category, color }]);
     switch (category) {
       case 'subject':
         setSubjectKeywords(prev => prev.filter(kw => kw !== word));
@@ -92,6 +92,20 @@ export default function PromptMakerPage() {
     }
   };
 
+  const handleAddKeyword = (newWord, category) => {
+    switch (category) {
+      case 'subject':
+        setSubjectKeywords(prev => [...prev, newWord]);
+        break;
+      case 'style':
+        setStyleKeywords(prev => [...prev, newWord]);
+        break;
+      case 'composition':
+        setCompositionKeywords(prev => [...prev, newWord]);
+        break;
+    }
+  };
+
   return (
     <div className="flex">
       <LeftDash 
@@ -105,6 +119,7 @@ export default function PromptMakerPage() {
         styleKeywords={styleKeywords}
         compositionKeywords={compositionKeywords}
         onKeywordSelect={handleKeywordSelect}
+        onAddKeyword={handleAddKeyword}
       />
     </div>
   );

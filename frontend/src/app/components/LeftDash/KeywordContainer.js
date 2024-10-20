@@ -4,11 +4,12 @@ const KeywordContainer = ({ selectedKeywords, onKeywordDeselect, baseInputText }
     return (
         <div className="relative text-black bg-[#FFF] h-[50%] flex-shrink-0 rounded-[10px] bg-white p-[25px] flex flex-col">
             <div className="flex-grow overflow-auto">
-                {selectedKeywords.map(({ word, category }, index) => (
+                {selectedKeywords.map(({ word, category, color }, index) => (
                     <button
                         key={index}
                         onClick={() => onKeywordDeselect(word, category)}
-                        className="inline-block bg-blue-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2 hover:bg-blue-300 transition-colors duration-200"
+                        style={{ backgroundColor: color }}
+                        className="inline-block rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2 hover:opacity-80 transition-opacity duration-200"
                     >
                         {word}
                     </button>
