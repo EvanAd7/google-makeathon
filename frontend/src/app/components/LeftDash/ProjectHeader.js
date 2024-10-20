@@ -1,4 +1,14 @@
+import { useRouter } from 'next/navigation';
+
 const ProjectHeader = ({ baseInputText }) => {
+
+    const router = useRouter();
+
+    const handleEditClick = () => {
+        router.push('/promptmaker');
+    };
+    
+
     return (
         <div className="flex flex-col mt-[65px] text-black">
             <div className="text-2xl font-bold">
@@ -11,7 +21,7 @@ const ProjectHeader = ({ baseInputText }) => {
                     </p>
                 </div>
                 <div className="flex absolute bottom-0 right-0 text-right">
-                    <a href="#" className="text-blue-500 hover:underline">
+                    <a href={handleEditClick} className="text-blue-500 hover:underline">
                         <p>Edit Initial Prompt</p>
                     </a>
                 </div>
