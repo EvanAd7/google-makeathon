@@ -15,13 +15,13 @@ const NavBar = ({ selectedCategory, onCategoryChange }) => {
     };
 
     return (
-        <div className="text-black flex flex-col gap-[27px]">
-            <div className="flex justify-between items-center gap-[75px]">
+        <div className="mt-[57px] text-black flex flex-col gap-[27px] justify-center items-center">
+            <div className="flex justify-between items-center gap-[75px] w-auto">
                 <button 
                     className={`flex items-center ${selectedCategory === 'subject' ? 'font-bold' : ''}`}
                     onClick={() => onCategoryChange('subject', '#AAB4F3')}
                 >
-                <ArrowLeft className="mr-2" />
+                <ArrowLeft className="mr-2 mr-[75px]" />
                 Subject
                 </button>
             
@@ -37,10 +37,10 @@ const NavBar = ({ selectedCategory, onCategoryChange }) => {
                     onClick={() => onCategoryChange('composition', '#F8C4FD')}
             >   
                 Composition
-                <ArrowRight className="ml-2" />
+                <ArrowRight className="ml-2 ml-[75px]" />
                 </button>
         </div>
-            <div className='text-center mb-[27px] mr-[10px]'>
+            <div className='text-center mb-[27px] mr-[10px] text-[18px] w-[515px]'>
                 {getCategoryDescription(selectedCategory)}
             </div>
         </div>
