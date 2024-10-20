@@ -2,11 +2,11 @@ import Logo from "./Logo";
 import ProjectHeader from "./ProjectHeader";
 import KeywordContainer from "./KeywordContainer";
 
-const LeftDash = () => {
+const LeftDash = ({ baseInputText, isLoading }) => {
     return (
         <div className="bg-[#F5EAF7] w-[60%] m-0 p-[25px] flex flex-col gap-[10px]">
             <Logo />
-            <ProjectHeader />
+            <ProjectHeader baseInputText={baseInputText} isLoading={isLoading} />
             <KeywordContainer />
         </div>
     )
