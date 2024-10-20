@@ -4,7 +4,6 @@ const ProjectHeader = ({ baseInputText }) => {
     const router = useRouter();
 
     const handleEditClick = () => {
-        // Assuming the landing page is at the root '/'
         router.push('/');
     };
 
