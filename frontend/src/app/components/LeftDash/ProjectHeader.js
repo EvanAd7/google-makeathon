@@ -1,4 +1,4 @@
-const ProjectHeader = ({ baseInputText, isLoading }) => {
+const ProjectHeader = ({ baseInputText }) => {
     return (
         <div className="flex flex-col mt-[65px] text-black">
             <div className="text-2xl font-bold">
@@ -9,7 +9,6 @@ const ProjectHeader = ({ baseInputText, isLoading }) => {
                     <p className="text-sm">
                         {baseInputText || "No initial prompt provided"}
                     </p>
-                    {isLoading && <p>Generating keywords...</p>}
                 </div>
                 <div className="flex absolute bottom-0 right-0 text-right">
                     <a href="#" className="text-blue-500 hover:underline">
