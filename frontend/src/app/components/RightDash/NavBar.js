@@ -14,7 +14,7 @@ const NavBar = ({ selectedCategory, onCategoryChange }) => {
             
                 <button 
                     className={`${selectedCategory === 'style' ? 'font-bold' : ''}`}
-                    onClick={() => onCategoryChange('style', '#B4F3AA')}
+                    onClick={() => onCategoryChange('style', '#C4ABF4')}
                 >
                 Style
                 </button>
