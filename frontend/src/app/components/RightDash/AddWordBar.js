@@ -24,7 +24,7 @@ const AddWordBar = ({ onAddWord, color }) => {
                 <button 
                     type="submit" 
                     style={{ backgroundColor: color }}
-                    className="absolute right-1 top-1 bottom-1 px-4 rounded-full text-white transition-colors duration-200 hover:opacity-90"
+                    className="absolute right-1 top-1 bottom-1 px-4 rounded-full text-gray-700 transition-colors duration-200 hover:opacity-90"
                 >
                     Add
                 </button>

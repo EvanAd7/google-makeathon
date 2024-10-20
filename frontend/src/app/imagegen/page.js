@@ -28,29 +28,42 @@ export default function ImageGenPage() {
             setIsLoading(true);
             setError(null);
             
-            // Construct the prompt for image generation
-            const prompt = `Create an image based on the input, "${inputText}" with the specifications: ${keywords}`;
-            setPrompt(prompt);
-
             try {
-                // Send a POST request to the imageGen API
-                const response = await fetch('/api/imageGen', {
+                // Step 1: Generate the AI artist prompt
+                const aiArtistPrompt = `You are an AI artist prompt writer. You know how to write good AI prompts, and today you will help me turn a long string of comma separated attributes into a masterful and intricate image prompt. Don't exclude ANYTHING that is in my input from your prompt response. In other words your output should be longer than my input. String together the words to create an effective prompt that will create the desired image. DO NOT use any titles or introductions or anything except the prompt itself. "${inputText} with the specifications: ${keywords}"`;
+
+                // Step 2: Send the AI artist prompt to textGen.js
+                const textGenResponse = await fetch('/api/textGen', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify({ prompt }),
+                    body: JSON.stringify({ prompt: aiArtistPrompt }),
                 });
 
-                // Check if the response is successful
-                if (!response.ok) {
+                if (!textGenResponse.ok) {
+                    throw new Error('Failed to generate text prompt');
+                }
+
+                const textGenData = await textGenResponse.json();
+                const generatedPrompt = textGenData.generatedText;
+                setPrompt(generatedPrompt);
+
+                // Step 3: Send the generated prompt to imageGen.js
+                const imageGenResponse = await fetch('/api/imageGen', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ prompt: generatedPrompt }),
+                });
+
+                if (!imageGenResponse.ok) {
                     throw new Error('Failed to generate images');
                 }
 
-                // Parse the JSON response
-                const data = await response.json();
-                // Set the generated images (base64 strings) in the state
-                setGeneratedImages(data.images);
+                const imageGenData = await imageGenResponse.json();
+                setGeneratedImages(imageGenData.images);
             } catch (err) {
                 // Log any errors to the console
                 console.error('Error:', err);

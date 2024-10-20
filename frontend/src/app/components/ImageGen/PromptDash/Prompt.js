@@ -6,7 +6,7 @@ const Prompt = ({ prompt }) => {
 
     const handleCopy = async () => {
         try {
-            await navigator.clipboard.writeText(prompt);
+            await navigator.clipboard.writeText(prompt || '');
             setIsCopied(true);
             setTimeout(() => setIsCopied(false), 2000); // Reset after 2 seconds
         } catch (err) {
@@ -15,13 +15,15 @@ const Prompt = ({ prompt }) => {
     };
 
     return (
-        <div className="w-full h-[50%] p-4 relative">
-            <p>
-                {prompt}
-                test
-                test
-            </p>
-            <div className="flex absolute bottom-[55px] text-right text-black">
+        <div className="w-full h-full flex flex-col justify-between p-4">
+            <div className="flex-grow overflow-auto mt-4">
+                {prompt ? (
+                    <p className="text-lg">{prompt}</p>
+                ) : (
+                    <p className="text-lg text-gray-500">Prompt loading...</p>
+                )}
+            </div>
+            <div className="flex justify-end items-center mt-4">
                 <Clipboard className="mr-2"/>
                 <button 
                     onClick={handleCopy}

@@ -15,7 +15,7 @@ const NavBar = ({ selectedCategory, onCategoryChange }) => {
     };
 
     return (
-        <div className="mt-[57px] text-black flex flex-col gap-[27px] justify-center items-center">
+        <div className="mt-[45px] text-black flex flex-col gap-[27px] justify-center items-center">
             <div className="flex justify-between items-center gap-[75px] w-auto">
                 <button 
                     className={`flex items-center ${selectedCategory === 'subject' ? 'font-bold' : ''}`}
