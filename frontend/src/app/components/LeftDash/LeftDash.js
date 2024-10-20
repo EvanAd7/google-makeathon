@@ -9,7 +9,8 @@ const LeftDash = ({ baseInputText, selectedKeywords, onKeywordDeselect }) => {
             <ProjectHeader baseInputText={baseInputText} />
             <KeywordContainer 
                 selectedKeywords={selectedKeywords} 
-                onKeywordDeselect={onKeywordDeselect} 
+                onKeywordDeselect={onKeywordDeselect}
+                baseInputText={baseInputText}
             />
         </div>
     )
