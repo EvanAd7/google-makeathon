@@ -2,6 +2,8 @@
 
 import { useSearchParams } from 'next/navigation';
 import { useState, useEffect } from 'react';
+import PromptDash from '../components/ImageGen/PromptDash/PromptDash';
+import ImageDisplay from '../components/ImageGen/ImageDisplay/ImageDisplay';
 
 export default function ImageGenPage() {
     // Get the search parameters from the URL
@@ -17,6 +19,7 @@ export default function ImageGenPage() {
     const [isLoading, setIsLoading] = useState(false);
     // State to store any error messages
     const [error, setError] = useState(null);
+    const [prompt, setPrompt] = useState('');
 
     useEffect(() => {
         // Function to generate the images
@@ -27,7 +30,8 @@ export default function ImageGenPage() {
             
             // Construct the prompt for image generation
             const prompt = `Create an image based on the input, "${inputText}" with the specifications: ${keywords}`;
-            
+            setPrompt(prompt);
+
             try {
                 // Send a POST request to the imageGen API
                 const response = await fetch('/api/imageGen', {
@@ -65,22 +69,9 @@ export default function ImageGenPage() {
     }, [inputText, keywords]); // This effect runs when inputText or keywords change
 
     return (
-        <div className="container mx-auto p-4">
-            <h1 className="text-2xl font-bold mb-4">Generated Images</h1>
-            {/* Show loading message while the images are being generated */}
-            {isLoading && <p>Generating images...</p>}
-            {/* Display any error messages */}
-            {error && <p className="text-red-500">{error}</p>}
-            <div className="grid grid-cols-2 gap-4">
-                {generatedImages.map((image, index) => (
-                    <img 
-                        key={index}
-                        src={`data:image/png;base64,${image}`} 
-                        alt={`Generated image ${index + 1}`} 
-                        className="w-full h-auto"
-                    />
-                ))}
-            </div>
+        <div className="m-0 p-0 flex">
+            <PromptDash prompt={prompt}/>
+            <ImageDisplay generatedImages={generatedImages} isLoading={isLoading} error={error}/>
         </div>
     );
 }
