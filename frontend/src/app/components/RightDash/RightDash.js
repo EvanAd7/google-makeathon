@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import NavBar from "./NavBar";
-import WordBank from "./WordBank";
+import SelectionContainer from "./SelectionContainer";
 
-const RightDash = ({ subjectKeywords, styleKeywords, compositionKeywords, onKeywordSelect}) => {
+const RightDash = ({ subjectKeywords, styleKeywords, compositionKeywords, onKeywordSelect, onAddKeyword }) => {
     const [selectedCategory, setSelectedCategory] = useState('subject');
     const [selectedColor, setSelectedColor] = useState('#AAB4F3');
 
@@ -24,16 +24,21 @@ const RightDash = ({ subjectKeywords, styleKeywords, compositionKeywords, onKeyw
         }
     };
 
+    const handleAddWord = (newWord) => {
+        onAddKeyword(newWord, selectedCategory);
+    };
+
     return (
         <div className="w-[40%] p-[25px] bg-[#FFF] flex flex-col">
             <NavBar selectedCategory={selectedCategory} onCategoryChange={handleCategoryChange} />
-            <WordBank 
+            <SelectionContainer 
                 keywords={getKeywordsForCategory()} 
-                onKeywordSelect={(word) => onKeywordSelect(word, selectedCategory)} 
+                onKeywordSelect={(word) => onKeywordSelect(word, selectedCategory, selectedColor)} 
+                onAddWord={handleAddWord}
                 color={selectedColor}
             />
         </div>
-    )
-}
+    );
+};
 
 export default RightDash;

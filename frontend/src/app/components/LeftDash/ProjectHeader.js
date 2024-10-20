@@ -1,13 +1,11 @@
 import { useRouter } from 'next/navigation';
 
 const ProjectHeader = ({ baseInputText }) => {
-
     const router = useRouter();
 
     const handleEditClick = () => {
         router.push('/');
     };
-    
 
     return (
         <div className="flex flex-col mt-[65px] text-black">
@@ -21,9 +19,12 @@ const ProjectHeader = ({ baseInputText }) => {
                     </p>
                 </div>
                 <div className="flex absolute bottom-0 right-0 text-right">
-                    <a href="#" onClick={handleEditClick} className="text-blue-500 hover:underline">
-                        <p>Edit Initial Prompt</p>
-                    </a>
+                    <button 
+                        onClick={handleEditClick} 
+                        className="text-blue-500 hover:underline"
+                    >
+                        Edit Initial Prompt
+                    </button>
                 </div>
             </div>
         </div>
