@@ -12,7 +12,7 @@ module.exports = {
         foreground: "var(--foreground)",
       },
       fontFamily: {
-        sans: ['Open Sans', 'sans-serif'],
+        pontiac: ['pontaic', 'sans-serif'],
       },
     },
   },

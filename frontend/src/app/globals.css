@@ -14,10 +14,16 @@
   }
 }
 
+@font-face {
+  font-family: "pontaic";
+  src: url('./fonts/Fontspring-DEMO-pontiac_bold.woff') format('woff');
+}
+
+
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  /* font-family: Arial, Helvetica, sans-serif; */
 }
 
 @layer utilities {
