@@ -1,66 +1,56 @@
 'use client';
 
-import LeftDash from "./components/LeftDash/LeftDash";
-import RightDash from "./components/RightDash/RightDash";
-import Image from "next/image";
-import React, { useState } from 'react';
+import { useSearchParams } from 'next/navigation';
+import { useState, useEffect } from 'react';
+import LeftDash from "../components/LeftDash/LeftDash";
+import RightDash from "../components/RightDash/RightDash";
 
-
-export default function Home() {
-  // State for image generation
-  const [prompt, setPrompt] = useState('');
-  const [generatedImage, setGeneratedImage] = useState('');
+export default function PromptMakerPage() {
+  const searchParams = useSearchParams();
+  const inputText = decodeURIComponent(searchParams.get('input') || '');
+  const [keywords, setKeywords] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
-  // State for text generation
-  const [textPrompt, setTextPrompt] = useState('');
-  const [generatedText, setGeneratedText] = useState('');
-  const [isTextLoading, setIsTextLoading] = useState(false);
+  useEffect(() => {
+    if (inputText) {
+      generateAIText(inputText);
+    }
+  }, [inputText]);
 
-  // Function to handle image generation
-  const handleImageSubmit = async (e) => {
-    e.preventDefault();
+  const generateAIText = async (text) => {
     setIsLoading(true);
+    const engineeredPrompt = `Create a comma-separated list of at most 30 one-word adjectives and verbs that detail the color, material, texture, and actions relating to this sentence: "${text}"`;
+
     try {
-      // Send request to image generation API
-      const response = await fetch('/api/imageGen', {
+      const response = await fetch('/api/textGen', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ prompt }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ prompt: engineeredPrompt }),
       });
+
+      if (!response.ok) {
+        throw new Error('Failed to generate text');
+      }
+
       const data = await response.json();
-      setGeneratedImage(data.image);
+      
+      // Process the generated text into keywords
+      const keywordList = data.generatedText.toLowerCase().split(',').map(word => word.trim());
+      setKeywords(keywordList);
     } catch (error) {
-      console.error('Error generating image:', error);
+      console.error('Error:', error);
+      setKeywords([]);
     } finally {
       setIsLoading(false);
     }
   };
 
-  // Function to handle text generation
-  const handleTextSubmit = async (e) => {
-    e.preventDefault();
-    setIsTextLoading(true);
-    try {
-      // Send request to text generation API
-      const response = await fetch('/api/textGen', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ prompt: textPrompt }),
-      });
-      const data = await response.json();
-      setGeneratedText(data.generatedText);
-    } catch (error) {
-      console.error('Error generating text:', error);
-    } finally {
-      setIsTextLoading(false);
-    }
-  };
-
   return (
     <div className="flex">
-      <LeftDash />
-      <RightDash />
+      <LeftDash baseInputText={inputText} isLoading={isLoading} />
+      <RightDash keywords={keywords} />
     </div>
   );
 }

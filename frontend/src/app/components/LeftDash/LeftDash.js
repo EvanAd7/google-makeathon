@@ -3,11 +3,11 @@ import ProjectHeader from "./ProjectHeader";
 import KeywordContainer from "./KeywordContainer";
 import GenerateButton from "./GenerateButton";
 
-const LeftDash = () => {
+const LeftDash = ({ baseInputText, isLoading }) => {
     return (
-        <div className="bg-[#F5EAF7] w-[60%] m-0 p-[53px]">
+        <div className="w-1/2 p-4 bg-white">
             <Logo />
-            <ProjectHeader />
+            <ProjectHeader baseInputText={baseInputText} isLoading={isLoading} />
             <KeywordContainer />
             <GenerateButton />
         </div>
@@ -15,4 +15,3 @@ const LeftDash = () => {
 }
 
 export default LeftDash;
-
