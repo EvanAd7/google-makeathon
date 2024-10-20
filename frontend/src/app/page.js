@@ -15,19 +15,19 @@ export default function LandingPage() {
   };
 
   return (
-    <div className="relative w-[100%] h-[982px] bg-[#f5e9f7]">
-    <h1 className="absolute left-1/2 top-[5.5%] transform -translate-x-1/2 text-center
-                  text-3xl mb-8 font-bold font-geist-sans text-transparent bg-clip-text 
+    <div className="w-[100%] h-[982px] bg-gradient-to-tl from-[#696eff] via-[#f5eaf7] to-[#eebbec]">
+      <h1 className="absolute left-1/2 top-[5.5%] transform -translate-x-1/2 text-center
+                    text-3xl mb-8 font-bold font-geist-sans text-transparent bg-clip-text 
                   bg-gradient-to-r from-indigo-600 to-pink-400"
                   >
-      Render
-    </h1>
-    <div className="absolute left-1/2 top-[20%] transform -translate-x-1/2 text-center">
-      <h2 className="text-[40px] font-bold leading-tight bg-black 
-              bg-clip-text text-transparent"
-      >
-      Engineer Less.
-      </h2>
+        Render
+      </h1>
+      <div className="absolute left-1/2 top-[20%] transform -translate-x-1/2 text-center">
+        <h2 className="text-[40px] font-bold leading-tight bg-black 
+                bg-clip-text text-transparent"
+        >
+        Engineer Less.
+        </h2>
       <h2 className="text-[40px] font-bold leading-tight bg-gradient-to-r from-[#696EFF] to-[#F8ACFF] 
               bg-clip-text text-transparent mt-2"
       >
