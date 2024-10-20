@@ -1,7 +1,9 @@
 import GenerateButton from "./GenerateButton";
 
+// Component to display selected keywords and generate button
 const KeywordContainer = ({ selectedKeywords, onKeywordDeselect, baseInputText }) => {
     return (
+        // Container for selected keywords and generate button
         <div className="relative text-black bg-[#FFF] h-[50%] flex-shrink-0 rounded-[10px] bg-white p-[25px] flex flex-col">
             <div className="flex-grow overflow-auto relative">
                 {selectedKeywords.length === 0 && (

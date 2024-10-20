@@ -5,24 +5,22 @@ import { useState, useEffect } from 'react';
 import PromptDash from '../components/ImageGen/PromptDash/PromptDash';
 import ImageDisplay from '../components/ImageGen/ImageDisplay/ImageDisplay';
 
+// Main component for the image generation page
 export default function ImageGenPage() {
-    // Get the search parameters from the URL
+    // Extract input text and keywords from URL parameters
     const searchParams = useSearchParams();
-    
-    // Extract and decode the 'input' and 'keywords' from the URL parameters
     const inputText = decodeURIComponent(searchParams.get('input') || '');
     const keywords = decodeURIComponent(searchParams.get('keywords') || '');
     
-    // State to store the generated images (as base64 strings)
+    // State variables for managing generated images, loading state, errors, and prompt
     const [generatedImages, setGeneratedImages] = useState([]);
-    // State to track if the images are currently being generated
     const [isLoading, setIsLoading] = useState(false);
-    // State to store any error messages
     const [error, setError] = useState(null);
     const [prompt, setPrompt] = useState('');
 
+    // Effect hook to generate images when input text or keywords change
     useEffect(() => {
-        // Function to generate the images
+        // Function to generate images
         const generateImages = async () => {
             // Set loading state to true and clear any previous errors
             setIsLoading(true);
@@ -75,7 +73,7 @@ export default function ImageGenPage() {
             }
         };
 
-        // Only generate the images if both inputText and keywords are present
+        // Only generate images if both inputText and keywords are present
         if (inputText && keywords) {
             generateImages();
         }

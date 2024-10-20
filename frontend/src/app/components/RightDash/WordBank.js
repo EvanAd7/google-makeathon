@@ -1,6 +1,7 @@
 import KeyWord from "./KeyWord";
 import RegenButton from "./RegenButton";
 
+// Component to display a bank of keywords
 const WordBank = ({ keywords = [], onKeywordSelect, color}) => {
     return (
         <div className="text-black h-screen overflow-y-auto">

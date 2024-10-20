@@ -1,14 +1,19 @@
 import { Clipboard } from 'lucide-react';
 import { useState } from 'react';
 
+// Component to display the generated prompt and copy button
 const Prompt = ({ prompt }) => {
+    // State to manage copy button text
     const [isCopied, setIsCopied] = useState(false);
 
+    // Function to handle copying the prompt
     const handleCopy = async () => {
         try {
+            // Copy prompt to clipboard
             await navigator.clipboard.writeText(prompt || '');
             setIsCopied(true);
-            setTimeout(() => setIsCopied(false), 2000); // Reset after 2 seconds
+            // Reset copy button text after 2 seconds
+            setTimeout(() => setIsCopied(false), 2000);
         } catch (err) {
             console.error('Failed to copy text: ', err);
         }
