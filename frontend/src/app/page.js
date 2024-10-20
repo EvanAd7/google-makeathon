@@ -22,7 +22,7 @@ export default function LandingPage() {
                   >
         Render
       </h1>
-      <div className="absolute left-1/2 top-[20%] transform -translate-x-1/2 text-center">
+      <div className="absolute left-1/2 top-[30%] transform -translate-x-1/2 text-center">
         <h2 className="text-[40px] font-bold leading-tight bg-black 
                 bg-clip-text text-transparent"
         >
@@ -34,12 +34,12 @@ export default function LandingPage() {
       Create More.
       </h2>
     </div>
-    <div className="absolute left-1/2 top-[35%] transform -translate-x-1/2 w-[25.8%] text-center text-black text-sm font-normal font-['Open Sans']">
+    <div className="absolute left-1/2 top-[47%] transform -translate-x-1/2 w-[50%] text-center text-black text-sm font-normal font-['Open Sans']">
       Let us streamline your prompt engineering process so you can focus on creating.
     </div>
 
     <form onSubmit={handleSubmit} className="w-full max-w-md">
-      <div className="absolute left-[25%] top-[45%] w-[50.7%] h-[41px] bg-white rounded-full flex items-center pl-4 pr-12">
+      <div className="absolute left-[35%] top-[55%] w-[30%] h-[41px] bg-white rounded-full flex items-center pl-4 pr-12">
         <input
           type="text"
           value={inputText}
@@ -48,10 +48,15 @@ export default function LandingPage() {
           className="w-full text-black text-sm font-normal font-['Open Sans'] focus:outline-none"
         />
       </div>
-      <div className="absolute left-1/2 top-[52%] transform -translate-x-1/2 w-[16.1%] h-[40px] bg-gradient-to-r from-[#aaacf3] via-[#c4abf4] to-[#f8c4fd] rounded-full flex justify-center items-center">
+      <div className="absolute left-1/2 top-[65%] transform -translate-x-1/2 w-[12%] h-[40px] 
+                    bg-gradient-to-r from-[#aaacf3] via-[#c4abf4] to-[#f8c4fd] rounded-full 
+                    flex justify-center items-center">
         <button
           type="submit"
-          className="text-dark grey text-sm font-regular font-['Open Sans']"
+          className="w-full h-full text-gray-700 text-md font-regular font-['Open Sans']
+                     duration-200 bg-gradient-to-r from-[#aaacf3] via-[#c4abf4] to-[#f8c4fd]
+                     hover:from-[#8a86c6] hover:via-[#a892d7] hover:to-[#f8a3d9] 
+                     rounded-full flex justify-center items-center"
           >
           Start Creating
         </button>

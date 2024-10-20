@@ -19,12 +19,12 @@ const AddWordBar = ({ onAddWord, color }) => {
                     value={newWord}
                     onChange={(e) => setNewWord(e.target.value)}
                     placeholder="Add your own..." 
-                    className="w-full bg-[#EFEFEF] outline-none border-none px-4 py-2 rounded-full pr-20"
+                    className="w-full bg-[#EFEFEF] outline-none border-none px-4 py-2 rounded-full pr-24"
                 />
                 <button 
                     type="submit" 
                     style={{ backgroundColor: color }}
-                    className="absolute right-0 top-0 bottom-0 px-4 rounded-full text-white transition-colors duration-200 hover:opacity-90"
+                    className="absolute right-1 top-1 bottom-1 px-4 rounded-full text-white transition-colors duration-200 hover:opacity-90"
                 >
                     Add
                 </button>

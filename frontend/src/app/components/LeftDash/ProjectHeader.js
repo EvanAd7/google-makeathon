@@ -9,19 +9,15 @@ const ProjectHeader = ({ baseInputText }) => {
 
     return (
         <div className="flex flex-col mt-[65px] text-black">
-            <div className="text-2xl font-bold">
-                <h1>Image Project Name</h1>
-            </div>
+            <div class="w-[657px] h-[54px] text-[#1e1e1e] text-[40px] font-bold font-['FONTSPRING DEMO - Pontiac Black']">Image Project Name</div>
             <div className="flex flex-wrap relative">
-                <div className="w-[70%]">
-                    <p className="text-sm">
-                        {baseInputText || "No initial prompt provided"}
-                    </p>
-                </div>
+            <div class="w-[493px] h-[54px] text-[#1e1e1e] text-md font-normal font-['Open Sans']">
+                {baseInputText || "No initial prompt provided"}
+            </div>
                 <div className="flex absolute bottom-0 right-0 text-right">
                     <button 
                         onClick={handleEditClick} 
-                        className="text-blue-500 hover:underline"
+                        class="text-right text-[#505050] text-md font-normal font-['Open Sans'] hover:underline"
                     >
                         Edit Initial Prompt
                     </button>
