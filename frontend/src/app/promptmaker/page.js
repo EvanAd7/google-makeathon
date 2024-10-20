@@ -1,8 +1,7 @@
 'use client';
 
-import LeftDash from "./components/LeftDash/LeftDash";
-import RightDash from "./components/RightDash/RightDash";
-import Image from "next/image";
+import LeftDash from "../components/LeftDash/LeftDash";
+import RightDash from "../components/RightDash/RightDash";
 import React, { useState } from 'react';
 
 
