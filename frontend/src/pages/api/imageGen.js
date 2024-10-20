@@ -28,7 +28,7 @@ export default async function handler(req, res) {
             },
         ],
         parameters: {
-            sampleCount: 1,
+            sampleCount: 4,
         },
     });
 
@@ -57,13 +57,13 @@ export default async function handler(req, res) {
         // Parse the JSON response
         const data = await response.json();
 
-        // Extract the base64 encoded image from the response
-        let image = data.predictions[0].bytesBase64Encoded;
+        // Extract all 4 base64 encoded images from the response
+        let images = data.predictions.map(prediction => prediction.bytesBase64Encoded);
 
-        console.log("🟢 got image", image.slice(0, 100));
+        console.log("🟢 got images", images.map(img => img.slice(0, 100)));
 
-        // Return the generated image as a JSON response
-        return res.status(200).json({ image: image });
+        // Return all generated images as a JSON response
+        return res.status(200).json({ images: images });
     } catch (error) {
         // Log any errors that occur during the process
         console.error("🟠 Error generating image:", error.message);
