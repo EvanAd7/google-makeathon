@@ -4,7 +4,7 @@ import KeywordContainer from "./KeywordContainer";
 
 const LeftDash = ({ baseInputText, selectedKeywords, onKeywordDeselect }) => {
     return (
-        <div className="bg-[#F5EAF7] w-[60%] m-0 p-[25px] flex flex-col gap-[10px]">
+        <div className="bg-[linear-gradient(317deg,#898CF7_-11.54%,#F5EAF7_36.94%)] w-[60%] m-0 p-[25px] gap-[10px] flex flex-col">
             <Logo />
             <ProjectHeader baseInputText={baseInputText} />
             <KeywordContainer 

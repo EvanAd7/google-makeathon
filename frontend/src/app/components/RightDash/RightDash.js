@@ -2,11 +2,13 @@ import { useState } from 'react';
 import NavBar from "./NavBar";
 import WordBank from "./WordBank";
 
-const RightDash = ({ subjectKeywords, styleKeywords, compositionKeywords, onKeywordSelect }) => {
+const RightDash = ({ subjectKeywords, styleKeywords, compositionKeywords, onKeywordSelect}) => {
     const [selectedCategory, setSelectedCategory] = useState('subject');
+    const [selectedColor, setSelectedColor] = useState('#AAB4F3');
 
-    const handleCategoryChange = (category) => {
+    const handleCategoryChange = (category, color) => {
         setSelectedCategory(category);
+        setSelectedColor(color);
     };
 
     const getKeywordsForCategory = () => {
@@ -29,6 +31,7 @@ const RightDash = ({ subjectKeywords, styleKeywords, compositionKeywords, onKeyw
             <WordBank 
                 keywords={getKeywordsForCategory()} 
                 onKeywordSelect={(word) => onKeywordSelect(word, selectedCategory)} 
+                color={selectedColor}
             />
         </div>
     )
