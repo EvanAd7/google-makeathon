@@ -1,11 +1,11 @@
 import AddWordBar from "./AddWordBar";
 import WordBank from "./WordBank";
 
-const SelectionContainer = () => {
+const SelectionContainer = ({ keywords = [] }) => {
     return (
-        <div className="bg-[#FFF] text-white">
+        <div className="text-black bg-pink-500">
             <AddWordBar />
-            <WordBank />
+            <WordBank keywords={keywords} />
         </div>
     )
 }
