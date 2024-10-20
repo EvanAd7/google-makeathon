@@ -1,18 +1,17 @@
-import RightArrow from "../img/right-arrow.svg";
-import LeftArrow from "../img/left-arrow.svg";
+import { ArrowLeft, ArrowRight } from 'lucide-react';
 
 const NavBar = () => {
     return (
-        <div className="flex flex-col justify-center items-center text-black w-[474px] h-[24px] flex-shrink-0">
-            <div className="flex gap-[85px] items-center">
+        <div className="mb-[50px] flex flex-col justify-center items-center text-black w-[474px] h-[24px] flex-shrink-0">
+            <div className="flex gap-[85px] items-center mb-[10px]">
                 <div className="flex items-center">
-                    <img src={LeftArrow} alt="Left Arrow" className="mr-2" />
+                    <ArrowLeft className="mr-2" />
                     <a>Subject</a>
                 </div>
                 <a>Style</a>
                 <div className="flex items-center">
                     <a>Composition</a>
-                    <img src={RightArrow} alt="Right Arrow" className="ml-2" />
+                    <ArrowRight className="ml-2" />
                 </div>
             </div>
             <div>
