@@ -5,7 +5,7 @@ const KeyWord = ({ word, onSelect, color}) => {
         <button 
             onClick={onSelect}
             style={{ backgroundColor: color }} 
-            className="inline-flex w-auto h-[32px] px-3 py-1 justify-center items-center flex-shrink-0 rounded-full text-sm transition-colors duration-200 ease-in-out text-black hover:bg-blue-400"
+            className="px-4 py-2 rounded-full justify-center items-center inline-flex text-center text-gray-700 text-md font-normal font-['Open Sans'] whitespace-nowrap m-1 transition-colors duration-200 hover:opacity-80"
         >
             {word}
         </button>
