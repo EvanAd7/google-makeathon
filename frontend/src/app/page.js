@@ -53,7 +53,7 @@ export default function LandingPage() {
                     flex justify-center items-center">
         <button
           type="submit"
-          className="w-full h-full text-gray-700 text-md font-regular font-['Open Sans']
+          className="w-full h-full text-gray-700 text-sm font-regular font-['Open Sans']
                      duration-200 bg-gradient-to-r from-[#aaacf3] via-[#c4abf4] to-[#f8c4fd]
                      hover:from-[#8a86c6] hover:via-[#a892d7] hover:to-[#f8a3d9] 
                      rounded-full flex justify-center items-center"

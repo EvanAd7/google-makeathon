@@ -23,9 +23,23 @@ export default function PromptMakerPage() {
   const generateAIText = async (text) => {
     setIsLoading(true);
     const engineeredPrompts = [
-      `Create a comma-separated list of at most 30 one-word adjectives and verbs that detail the color, material, texture, and actions relating to this sentence: "${text}"`,
-      `Create a comma-separated list of at most 15 artistic styles that could be applied to an image of: "${text}"`,
-      `Create a comma-separated list of at most 15 composition techniques or camera angles that could be used to capture: "${text}"`
+      `I need your help creating words that relate to attributes of an image. Your response should be exclusively comma separated values, without exception. Values should be no more than 3 words. The description of the image is "${text}". Now imagine you are trying to describe this image in much more vivid detail.
+
+Create a comma-separated list with 20 one-word adjective and verb words that detail the color, material, texture, and actions relating to the image. Be imaginative: what might different ways to expand on this image description?
+
+Without returning or a line break, add another 10 words that describe what might be in the background of the image, based on the image description.
+
+These attributes should NOT be about the style or appearance of the image; only the contents, subjects, and material within the image.`,
+      `I need your help creating words that relate to attributes of an image. Your response should be exclusively comma separated values, without exception. Values should be no more than 3 words. The description of the image is "${text}". Now imagine you are trying to describe this image in much more vivid detail.
+
+      Create a comma-separated list with NO more than 30 words that describe potential styles for this image. Provide a list of image/art types, such as sketch, drawing, oil painting, abstract, minimalist, surreal, modern. Include attributes specific to the image description. Based on the description, what might the style of the image be?
+      
+      Ensure that your response is exclusively comma separated values, without exception. NO titles or labels, only comma separated values. max 30 words.`,
+      `I need your help creating words that relate to attributes of an image. Your response should be exclusively comma separated values, without exception. Values should be no more than 3 words. The description of the image is "${text}". Now imagine you are trying to describe this image in much more vivid detail.
+
+Create a comma-separated list with no more than 15 words that describe the composition of the image based on the description. For example, panoramic, portrait, landscape, square, rectangular, oval, circular. Also include some common image dimensions and camera angles, such as high-angle, or 80mm. In this list include some potential uses for the image, such as logo, poster, banner, profile photo, etc.
+
+Ensure that your response is exclusively comma separated values, without exception. NO titles or labels, only comma separated values.`
     ];
 
     try {
